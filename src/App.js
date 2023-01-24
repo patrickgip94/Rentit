@@ -1,4 +1,7 @@
+/* UTILITIES */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+/* PAGES */
 import ForgotPassword from "../src/pages/ForgotPassword";
 import Home from "../src/pages/Home";
 import Offers from "../src/pages/Offers";
@@ -6,10 +9,14 @@ import Profile from "../src/pages/Profile";
 import SignIn from "../src/pages/SignIn";
 import SignUp from "../src/pages/SignUp";
 
+/* COMPONENTS */
+import Header from "./components/Header";
+
 function App() {
   return (
     <>
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
