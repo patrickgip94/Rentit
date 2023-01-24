@@ -27,8 +27,7 @@ const SignUp = () => {
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
-            src="https://media0.giphy.com/media/3orif3HlX3i4fDdqCY/giphy.gif?cid=
-            ecf05e4795sutpp2yim8hhpkj0s4hq66wc6xragoaqh4w8lb&rid=giphy.gif&ct=g"
+            src="https://img.staticmb.com/mbcontent//images/uploads/2019/7/rent.jpg"
             alt="key"
             className="w-full rounded-2xl"
           />
@@ -59,7 +58,7 @@ const SignUp = () => {
                 id="password"
                 value={password}
                 onChange={onChange}
-                placeholder="Password"
+                placeholder="Create password"
                 className="w-full px-4 py-2 text-md text-gray-700 bg-white
               border-gray-300 rounded transition ease-in-out"
               />
@@ -74,7 +73,18 @@ const SignUp = () => {
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
               )}
-              <p>At least 8 characters</p>
+              <p className="text-gray-400 px-4 mt-1 text-xs">
+                At least 8 characters
+              </p>
+              <p className="text-gray-400 px-4 mt-1 text-xs">
+                Mix of letters and numbers
+              </p>
+              <p className="text-gray-400 px-4 mt-1 text-xs">
+                At least 1 special character
+              </p>
+              <p className="text-gray-400 px-4 mt-1 text-xs">
+                At least 1 lowercase letter and 1 uppercase letter
+              </p>
             </div>
             <div className="flex justify-between whitespace-nowrap text-md sm:text-md ">
               <p className="mb-6">
@@ -105,6 +115,17 @@ const SignUp = () => {
             >
               Submit
             </button>
+            <div className="flex items-center justify-center">
+              <p className="text-gray-500 text-xs font-medium py-4 pr-4 ">
+                By submitting, I accept Rentit's{" "}
+                <Link
+                  to="/terms"
+                  className="text-blue-500 border-b border-b-blue-500 hover:text-blue-700 hover:border-b-blue-700"
+                >
+                  terms of use.
+                </Link>
+              </p>
+            </div>
             <div
               className="flex  items-center my-4 before:border-t before:flex-1 
           before:border-gray-300 after:border-t after:flex-1 
