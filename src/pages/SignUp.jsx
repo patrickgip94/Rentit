@@ -91,8 +91,8 @@ const SignUp = () => {
                 Have an account?
                 <Link
                   to="/sign-in"
-                  className="text-green-600 hover:text-green-500 transition 
-                  duration-200 ease-in-out ml-1 font-bold hover:border-b border-b-green-500"
+                  className="text-red-600 hover:text-red-500 transition 
+                  duration-200 ease-in-out ml-1 font-bold hover:border-b border-b-red-500"
                 >
                   Sign In
                 </Link>
