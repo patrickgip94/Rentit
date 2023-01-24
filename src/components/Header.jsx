@@ -18,7 +18,7 @@ const Header = () => {
           <img
             src="https://i.imgur.com/oNE5geM.png"
             alt="logo"
-            className="h-8 cursor-pointer"
+            className="h-6 cursor-pointer"
             onClick={() => navigate("/")}
           />
         </div>
