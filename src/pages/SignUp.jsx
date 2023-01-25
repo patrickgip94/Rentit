@@ -9,6 +9,7 @@ import {
 import { db } from "../firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 /* COMPONENTS */
 import OAuth from "../components/OAuth";
@@ -55,9 +56,10 @@ const SignUp = () => {
 
       // Adds users to FireStore Database
       await setDoc(doc(db, "users", user.uid), formDataCopy);
+      toast.success("Nice! It works! 😊 ");
       navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error("Beep-Boop... something went wrong 🤖");
     }
   };
 

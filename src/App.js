@@ -1,5 +1,7 @@
 /* UTILITIES */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 /* PAGES */
 import ForgotPassword from "../src/pages/ForgotPassword";
@@ -28,6 +30,18 @@ function App() {
           <Route path="/terms" element={<TermOfUse />} />
         </Routes>
       </Router>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
