@@ -30,12 +30,12 @@ const ForgotPassword = () => {
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
+      <div className="flex justify-center flex-wrap items-center px-6 py-8 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
             src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1123.jpg?w=2000"
             alt="key"
-            className="w-full rounded-2xl"
+            className="w-full rounded-2xl py-6"
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
