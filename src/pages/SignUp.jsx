@@ -10,6 +10,7 @@ import { db } from "../firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import PasswordChecklist from "react-password-checklist";
 
 /* COMPONENTS */
 import OAuth from "../components/OAuth";
@@ -26,6 +27,7 @@ const SignUp = () => {
   });
   const navigate = useNavigate();
   const { name, email, password } = formData;
+  const [passwordAgain, setPasswordAgain] = useState("");
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -115,18 +117,23 @@ const SignUp = () => {
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
               )}
-              <p className="text-gray-400 px-4 mt-1 text-xs">
-                At least 8 characters
-              </p>
-              <p className="text-gray-400 px-4 mt-1 text-xs">
-                Mix of letters and numbers
-              </p>
-              <p className="text-gray-400 px-4 mt-1 text-xs">
-                At least 1 special character
-              </p>
-              <p className="text-gray-400 px-4 mt-1 text-xs">
-                At least 1 lowercase letter and 1 uppercase letter
-              </p>
+              <div>
+                <PasswordChecklist
+                  rules={[
+                    "minLength",
+                    "specialChar",
+                    "number",
+                    "capital",
+                    "match",
+                  ]}
+                  minLength={5}
+                  value={password}
+                  valueAgain={passwordAgain}
+                  onChange={(isValid) => {}}
+                  className="text-xs"
+                  iconSize="9"
+                />
+              </div>
             </div>
             <div className="flex justify-between whitespace-nowrap text-md sm:text-md ">
               <p className="mb-6">

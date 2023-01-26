@@ -5,3 +5,8 @@
 body {
   background-color: #f9f9fb;
 }
+
+li.drNucU {
+  align-items: center;
+  padding-left: 4px;
+}
