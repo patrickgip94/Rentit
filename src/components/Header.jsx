@@ -23,7 +23,7 @@ const Header = () => {
   }
 
   return (
-    <div className="bg-white flex-1 border-b shadow-sm sticky top-0 z-50">
+    <div className="bg-white flex-1 border-b shadow-sm sticky top-0 z-40">
       <header className="flex justify-between items-center px-1 max-w-6xl mx-auto">
         <div>
           <img
