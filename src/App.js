@@ -11,6 +11,7 @@ import Profile from "../src/pages/Profile";
 import SignIn from "../src/pages/SignIn";
 import SignUp from "../src/pages/SignUp";
 import TermOfUse from "./pages/Terms";
+import CreateListing from "./pages/CreateListing";
 
 /* COMPONENTS */
 import Header from "./components/Header";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/create-listings" element={<CreateListing />} />
           <Route path="/terms" element={<TermOfUse />} />
         </Routes>
       </Router>
