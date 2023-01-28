@@ -115,11 +115,11 @@ const Profile = () => {
             duration-150 ease-in-out hover:shadow-lg active:bg-blue-800"
           >
             <Link
-              to="/create-listing"
+              to="/create-listings"
               className="flex justify-center items-center "
             >
               <FcHome className="mr-2 text-3xl bg-red-200 rounded-full p-1 border-2" />
-              Rent your home
+              Sell or Rent your home
             </Link>
           </button>
         </div>
