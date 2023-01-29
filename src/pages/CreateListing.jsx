@@ -8,6 +8,8 @@ import {
   uploadBytes,
 } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
 
 /* LOADING SPINNER */
 import Spinner from "../components/Spinner";
@@ -17,8 +19,10 @@ import { GoHome } from "react-icons/go";
 import { BsBuilding } from "react-icons/bs";
 import { toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 const CreateListing = () => {
+  const navigate = useNavigate();
   const auth = getAuth();
   const [geoLocationEnabled, setGeoLocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -85,7 +89,7 @@ const CreateListing = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (discountedPrice >= homePrice) {
+    if (+discountedPrice >= +homePrice) {
       setLoading(false);
       toast.error("Price drop can't be higher than home price");
       return;
@@ -108,7 +112,7 @@ const CreateListing = () => {
 
       location = data.status === "ZERO_RESULTS" && undefined;
 
-      if (location === undefined || location.includes("undefined")) {
+      if (location === undefined) {
         setLoading(false);
         toast.error("Invalid address");
         return;
@@ -131,7 +135,7 @@ const CreateListing = () => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is" + progress + "% done");
+            console.log("Upload is " + progress + " % done");
             switch (snapshot.state) {
               case "paused":
                 console.log("Upload is paused");
@@ -157,16 +161,27 @@ const CreateListing = () => {
     };
 
     const imgUrls = await Promise.all(
-      [...images]
-        .map((image) => storeImage(image))
-        .catch((error) => {
-          setLoading(false);
-          toast.error("Images failed to upload");
-          return;
-        })
-    );
+      [...images].map((image) => storeImage(image))
+    ).catch((error) => {
+      setLoading(false);
+      toast.error("Images failed to upload");
+      return;
+    });
 
-    console.log(imgUrls);
+    const formDataCopy = {
+      ...formData,
+      imgUrls,
+      geolocation,
+      timestamp: serverTimestamp(),
+    };
+    delete formDataCopy.images;
+    !formDataCopy.offer && delete formDataCopy.discountedPrice;
+    delete formDataCopy.latitude;
+    delete formDataCopy.longitude;
+    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+    setLoading(false);
+    toast.success("Listing has been created");
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
 
   if (loading) {
@@ -212,9 +227,9 @@ const CreateListing = () => {
         </div>
 
         <h1 className="mt-6 font-bold text-2xl">
-          First, tell us about yourself
+          First, tell us about your place!
         </h1>
-        <p className="text-md mt-6 mb-3 font-semibold">What's your name?</p>
+        <p className="text-md mt-6 mb-3 font-semibold">Title</p>
         <input
           type="text"
           id="name"
