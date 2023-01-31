@@ -24,7 +24,7 @@ import { useNavigate } from "react-router";
 const CreateListing = () => {
   const navigate = useNavigate();
   const auth = getAuth();
-  const [geoLocationEnabled, setGeoLocationEnabled] = useState(true);
+  const [geoLocationEnabled, setGeoLocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "rent",
@@ -173,6 +173,7 @@ const CreateListing = () => {
       imgUrls,
       geolocation,
       timestamp: serverTimestamp(),
+      userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
@@ -229,17 +230,17 @@ const CreateListing = () => {
         <h1 className="mt-6 font-bold text-2xl">
           First, tell us about your place!
         </h1>
-        <p className="text-md mt-6 mb-3 font-semibold">Title</p>
+        <p className="text-lg mt-6 mb-3 font-semibold">Title</p>
         <input
           type="text"
           id="name"
           value={name}
           onChange={onChange}
-          placeholder="Name"
+          placeholder="What are you selling?"
           maxLength="32"
           minLength="3"
           required
-          className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300
+          className="w-full px-4 py-2 font-thin text-md text-gray-700 bg-white border border-gray-300
             transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white
             focus:border-slate-600 mb-6"
         />
@@ -381,7 +382,7 @@ const CreateListing = () => {
           id="address"
           value={address}
           onChange={onChange}
-          placeholder="Address"
+          placeholder="Address of the property goes here."
           required
           min="-90"
           max="90"
@@ -427,7 +428,7 @@ const CreateListing = () => {
           id="description"
           value={description}
           onChange={onChange}
-          placeholder="Property Overview"
+          placeholder="Describe your property in details."
           required
           className="w-full px-4 py-2 text-md text-gray-700 bg-white border border-gray-300
             transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white
