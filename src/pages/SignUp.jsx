@@ -119,13 +119,7 @@ const SignUp = () => {
               )}
               <div>
                 <PasswordChecklist
-                  rules={[
-                    "minLength",
-                    "specialChar",
-                    "number",
-                    "capital",
-                    "match",
-                  ]}
+                  rules={["minLength", "specialChar", "number", "capital"]}
                   minLength={5}
                   value={password}
                   valueAgain={passwordAgain}

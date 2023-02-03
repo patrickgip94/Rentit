@@ -16,6 +16,7 @@ const Header = () => {
       }
     });
   }, [auth]);
+
   function pathMatchRoute(route) {
     if (route === location.pathname) {
       return true;
