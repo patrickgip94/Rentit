@@ -187,9 +187,7 @@ export default function CreateListing() {
             value="sale"
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "rent"
-                ? "bg-white text-black"
-                : "bg-slate-600 text-white"
+              type === "rent" ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             sell
@@ -200,9 +198,7 @@ export default function CreateListing() {
             value="rent"
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "sale"
-                ? "bg-white text-black"
-                : "bg-slate-600 text-white"
+              type === "sale" ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             rent
@@ -256,7 +252,7 @@ export default function CreateListing() {
             value={true}
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              !parking ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             Yes
@@ -267,7 +263,7 @@ export default function CreateListing() {
             value={false}
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              parking ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             no
@@ -281,7 +277,7 @@ export default function CreateListing() {
             value={true}
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              !furnished ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             yes
@@ -292,7 +288,7 @@ export default function CreateListing() {
             value={false}
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              furnished ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             no
@@ -356,7 +352,7 @@ export default function CreateListing() {
             value={true}
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !offer ? "bg-white text-black" : "bg-slate-600 text-white"
+              !offer ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             yes
@@ -367,7 +363,7 @@ export default function CreateListing() {
             value={false}
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              offer ? "bg-white text-black" : "bg-slate-600 text-white"
+              offer ? "bg-white text-black" : "bg-blue-600 text-white"
             }`}
           >
             no
@@ -375,7 +371,7 @@ export default function CreateListing() {
         </div>
         <div className="flex items-center mb-6">
           <div className="">
-            <p className="text-lg font-semibold">Regular price</p>
+            <p className="text-lg font-semibold">Home price</p>
             <div className="flex w-full justify-center items-center space-x-6">
               <input
                 type="number"
