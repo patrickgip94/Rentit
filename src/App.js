@@ -16,6 +16,7 @@ import CreateListing from "./pages/CreateListing";
 /* COMPONENTS */
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
+import EditListing from "./pages/EditListing";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           <Route path="/offers" element={<Offers />} />
           <Route path="/create-listings" element={<PrivateRoute />}>
             <Route path="/create-listings" element={<CreateListing />} />
+          </Route>
+          <Route path="/edit-listing" element={<PrivateRoute />}>
+            <Route path="/edit-listing/:listingId" element={<EditListing />} />
           </Route>
           <Route path="/terms" element={<TermOfUse />} />
         </Routes>
