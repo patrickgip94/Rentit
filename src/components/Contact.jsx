@@ -23,7 +23,7 @@ export default function Contact({ userRef, listing }) {
   function onChange(e) {
     setMessage(e.target.value);
   }
-
+  
   return (
     <>
       {landlord !== null && (
