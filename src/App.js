@@ -12,11 +12,12 @@ import SignIn from "../src/pages/SignIn";
 import SignUp from "../src/pages/SignUp";
 import TermOfUse from "./pages/Terms";
 import CreateListing from "./pages/CreateListing";
+import Listing from "./pages/Listing";
+import EditListing from "./pages/EditListing";
 
 /* COMPONENTS */
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
-import EditListing from "./pages/EditListing";
 
 function App() {
   return (
@@ -32,13 +33,17 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
+          <Route
+            path="/category/:categoryName/:listingId"
+            element={<Listing />}
+          />
+          <Route path="/terms" element={<TermOfUse />} />
           <Route path="/create-listings" element={<PrivateRoute />}>
             <Route path="/create-listings" element={<CreateListing />} />
           </Route>
           <Route path="/edit-listing" element={<PrivateRoute />}>
             <Route path="/edit-listing/:listingId" element={<EditListing />} />
           </Route>
-          <Route path="/terms" element={<TermOfUse />} />
         </Routes>
       </Router>
       <ToastContainer
