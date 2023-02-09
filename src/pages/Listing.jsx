@@ -13,12 +13,15 @@ import SwiperCore, {
 } from "swiper";
 import "swiper/css/bundle";
 
-const Listing = () => {
+// ICONS
+import { FaShare } from "react-icons/fa";
+
+export default function Listing() {
   const params = useParams();
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
-
   useEffect(() => {
     async function fetchListing() {
       const docRef = doc(db, "listings", params.listingId);
@@ -41,7 +44,7 @@ const Listing = () => {
         pagination={{ type: "progressbar" }}
         effect="fade"
         modules={[EffectFade]}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 3000 }}
       >
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
@@ -55,8 +58,23 @@ const Listing = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div
+        className="fixed top-[10%] right-[5%] z-10 bg-white cursor-pointer border-2 border-gray-400 rounded-full w-12 h-12 flex justify-center items-center"
+        onClick={() => {
+          navigator.clipboard.writeText(window.location.href);
+          setShareLinkCopied(true);
+          setTimeout(() => {
+            setShareLinkCopied(false);
+          }, 2000);
+        }}
+      >
+        <FaShare className="text-lg text-slate-500" />
+      </div>
+      {shareLinkCopied && (
+        <p className="fixed top-[19%] right-[2%] font-semibold border-2 border-gray-400 rounded-md bg-white z-10 p-2">
+          Link Copied
+        </p>
+      )}
     </main>
   );
-};
-
-export default Listing;
+}
