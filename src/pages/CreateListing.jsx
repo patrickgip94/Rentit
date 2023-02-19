@@ -208,7 +208,7 @@ export default function CreateListing() {
         <p className="text-lg mt-6 font-semibold">Title</p>
         <input
           type="text"
-          id="title"
+          id="name"
           value={name}
           onChange={onChange}
           placeholder="title"
