@@ -65,7 +65,7 @@ const Slider = () => {
                   backgroundSize: "cover",
                 }}
                 className="relative w-full h-[400px] overflow-hidden"
-              ></div>
+              />
               <p
                 className="text-[#f1faee] absolute left-1 top-3 font-semibold max-w-[90%] 
                 bg-[#457b9d] shadow-lg opacity-90 p-2 rounded-br-3xl"
